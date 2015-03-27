@@ -126,6 +126,8 @@ This is very simple, since you already have the sinch_sms gem included in your p
     
 Now you're ready to try your two factor authentication system! Spin up a local rails server, navigate to the root url, sign up as a new user, sign out, and try logging back in as that same user.
 
+**Note:** You need to format the phone number according to [E.164](http://en.wikipedia.org/wiki/E.164) standards. For example, US numbers need 1 + 3 digit area code + 7 digit phone number
+
 ##Logging Out
 To keep things simple, I didn't create a logout button. It's very to simple to logout by deleting the session cookie. In Chrome (it's similar in other browsers too) open the developer tools by right-clicking anywhere on the page and choosing 'Inspect Element.' Then, go to the 'Resources' tab and find the token that represents your app. See the screenshot below for a clear explanation of what to delete.
 
