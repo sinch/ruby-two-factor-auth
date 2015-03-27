@@ -9,19 +9,18 @@ When users sign up for your app, they will be prompted to enter their phone numb
 I set up a simple welcome controller to redirect to when the user is logged in. 
 
 1. Create **app/controllers/welcome_controller.rb**, add working skeleton         
-
-    class WelcomeController < ApplicationController    
-        before_filter :authenticate_user!    
-        def index    
-        end    
-    end 
         
+        class WelcomeController < ApplicationController    
+            before_filter :authenticate_user!    
+            def index    
+            end    
+        end 
+2.         
 2. Create the view in **app/views/welcome/index.html.erb**. You can make this view look however you like.
 3. Make your root route `welcome#index` in **routes.rb**
 
-    root 'welcome#index'
+        root 'welcome#index'
     
-
 Now, when users try to access your root domain, they will have to login.
 
 ##Set up Devise Gem
@@ -39,12 +38,14 @@ I chose to use the gem [devise](https://github.com/plataformatec/devise) to hand
 First, add a phone number column to your users table:
 
 1. Run `$ rails g migration AddPhoneNumberToUsers`
-2. Edit migration file to look like so:    
-    class AddPhoneNumberToUsers < ActiveRecord::Migration
-      def change
-  	    add_column :users, :phone_number, :string
-      end
-    end
+2. Edit migration file to look like so:  
+   
+        class AddPhoneNumberToUsers < ActiveRecord::Migration
+          def change
+      	    add_column :users, :phone_number, :string
+          end
+        end
+        
 3. Run `$ rake db:migrate`
 
 Now, create a custom registration controller to require phone number when signing up. Create the file **app/controllers/registrations_controller.rb**, have it inherit from the devise registrations controller and modify the devise method sign_up_params.
@@ -101,20 +102,21 @@ Lastly, add a phone number field to the signup view. To override the default dev
 2. Run `$ bundle install`
 3. Run `$ bundle exec rails g two_factor_authentication user`
 4. Run `$ bundle exec rake db:migrate`
-5. Add `has_one_time_password` to the user model. Your user model should look like so:
+5. Add `has_one_time_password` to the user model. Your user model should look like so:    
 
+<br>
+   
     class User < ActiveRecord::Base
-      # Include default devise modules. Others available are:
-      # :confirmable, :lockable, :timeoutable and :omniauthable
       devise :two_factor_authenticatable, :database_authenticatable, :registerable,
-             :recoverable, :rememberable, :trackable, :validatable
-    
+                :recoverable, :rememberable, :trackable, :validatable
+                
       has_one_time_password
-    
+      
       def send_two_factor_authentication_code
         #send sms with code!
       end
-    end   
+    end
+    
 
 
 ##Send SMS Using Sinch
