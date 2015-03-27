@@ -15,7 +15,7 @@ I set up a simple welcome controller to redirect to when the user is logged in.
             def index    
             end    
         end 
-2.         
+                 
 2. Create the view in **app/views/welcome/index.html.erb**. You can make this view look however you like.
 3. Make your root route `welcome#index` in **routes.rb**
 
