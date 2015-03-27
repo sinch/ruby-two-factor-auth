@@ -32,6 +32,7 @@ Add to **routes.rb**:
 Create a table to store pairs of phone numbers and OTP codes:
 
     $ rails generate migration CreateVerifications phone_number:string code:string
+    $ rake db:create
     $ rake db:migrate
 
 Then, create the file **app/models/verification.rb** with the following:
