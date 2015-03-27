@@ -3,7 +3,7 @@ This tutorial builds on [Part 1](NEEDLINK) of my two factor authentication serie
 
 When users sign up for your app, they will be prompted to enter their phone number. Every time they sign in after that, a one time password (otp) will be texted to their phone. They will type that otc into the website as a second step to the login process.
 
-![app flow](NEEDLINK)
+![app flow](images/web-app.png)
 
 ##Create Welcome Controller
 I set up a simple welcome controller to redirect to when the user is logged in. 
