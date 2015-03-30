@@ -1,4 +1,4 @@
-#Number Verification And Two Factor Authentication (Android/Ruby on Rails)
+#Number Verification And Two Factor Authentication in Android/Ruby on Rails
 
 More and more websites and apps rely on knowing your phone number and in many cases using that number for two factor authentication (more info about 2FA here [www.sinch.com/opinion/what-is-two-factor-authentication](https://www.sinch.com/opinion/what-is-two-factor-authentication/)).
 
