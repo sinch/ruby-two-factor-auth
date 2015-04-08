@@ -2,7 +2,7 @@
 
 In this part of the tutorial, you will build the Android client app that uses the verification api you built in [part 1](https://www.sinch.com/tutorials/two-factor-authentication-rails/).
 
-Your finished app will look like so:
+Your finished app will look like so
 
 ![app screen](images/app-screen.png)
 
