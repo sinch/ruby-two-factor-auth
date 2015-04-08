@@ -4,7 +4,7 @@ In this part of the tutorial, you will build the Android client app that uses th
 
 Your finished app will look like so:
 
-![](images/app.png)
+![](images/app-screen.png)
 
 Start by creating a new project in Android Studio. I'll call the  first activity **GetCodeActivity**. In this activity, the user will input their phone number, then you will make a request to your-website.com/generate (from part 1 of this tutorial) to generate a one time code. 
 
