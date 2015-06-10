@@ -102,13 +102,13 @@ I like to use postman for chrome to test out my rest apis. You can get it [here]
 Use `$ rails s` to start a local rails server and take note of the port. In my case it was 3000.
 
 In Postman, generate a code:
-![](images/postman_generate.png)
+![postman generate](images/postman_generate.png)
 
 See the code arrive in an SMS:
-![](images/sms_code.jpg)
+![sms code](images/sms_code.jpg)
 
 And then verify the code:
-![](images/postman_verify.png)
+![postman verify](images/postman_verify.png)
 
 ##Hosting
 If you're going to follow part 2 of this tutorial, you will need to host this backend somewhere. I chose [Heroku](http://www.heroku.com), since it's easy to host a rails app, and has a huge free tier. After you've created an account, follow the steps on their site to deploy your app - [https://devcenter.heroku.com/articles/getting-started-with-rails4#deploy-your-application-to-heroku](https://devcenter.heroku.com/articles/getting-started-with-rails4#deploy-your-application-to-heroku). Make sure to follow through the section on migrating your database. 
