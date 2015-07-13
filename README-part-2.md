@@ -1,6 +1,6 @@
 #Number Verification And Two Factor Authentication in an Android App - Part 2
 
-In this part of the tutorial, you will build the Android client app that uses the verification api you built in [part 1](https://www.sinch.com/tutorials/two-factor-authentication-rails/).
+In this part of the tutorial, you will build the Android client app that uses the verification API you built in [part 1](https://www.sinch.com/tutorials/two-factor-authentication-rails/).
 
 Your finished app will look like so
 
@@ -88,6 +88,7 @@ You'll notice the in `onPostExecute`, you start the next activity. Go ahead on c
         
 When the user clicks the "Verify Code" button, your app will make a request to see if the phone number/code combo exists in your database. Then, it will display a toast message with the result:
 
+```
 public void verifyCodeButtonClick(View v) {
         String code = ((EditText) findViewById(R.id.code)).getText().toString();
         (new VerifyCode()).execute(phoneNumber, code);
@@ -126,7 +127,8 @@ public void verifyCodeButtonClick(View v) {
             Toast.makeText(getApplicationContext(), "Verified: " + verified, Toast.LENGTH_LONG).show();
         }
     }
-    
+```    
+
 You're all ready to test your app! Try verifying a correct code, and then pressing the "Verify code" button a second time - you'll notice that the code doesn't work anymore. Since it's a one time use code, it's only valid to be used once.
 
 Coming soon... part 3, web app 2 factor authentication!
