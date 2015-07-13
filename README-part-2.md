@@ -131,4 +131,4 @@ public void verifyCodeButtonClick(View v) {
 
 You're all ready to test your app! Try verifying a correct code, and then pressing the "Verify code" button a second time - you'll notice that the code doesn't work anymore. Since it's a one time use code, it's only valid to be used once.
 
-Coming soon... part 3, web app 2 factor authentication!
+Next up - [web based two factor authentication](https://www.sinch.com/tutorials/ruby-two-factor-auth-part-3/) using Rails, Devise, and Sinch.
