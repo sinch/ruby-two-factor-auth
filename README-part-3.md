@@ -120,7 +120,7 @@ Lastly, add a phone number field to the signup view. To override the default dev
 
 
 ##Send SMS Using Sinch
-This is very simple, since you already have the sinch_sms gem included in your project. In `send_two_factor_authentication_code`, add the following line with your unique Sinch key and secret.
+For this part, we are going to be using [SMS verification](https://www.sinch.com/products/verification/sms-verification/). This is very simple, since you already have the `sinch_sms gem` included in your project. In `send_two_factor_authentication_code`, add the following line with your unique Sinch key and secret.
 
     SinchSms.send('YOUR_APP_KEY', 'YOUR_APP_SECRET', "Your code is #{otp_code}", phone_number)
     
