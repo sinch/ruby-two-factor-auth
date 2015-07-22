@@ -1,4 +1,4 @@
-#Ruby on Rails Two Factor Authentication for User Phone Numbers
+#Ruby on Rails Two Factor Authentication for User Phone Numbers - Pt. 1
 
 More and more websites and apps rely on knowing your phone number and in many cases using that number for two factor authentication (more info about [2FA here](https://www.sinch.com/opinion/what-is-two-factor-authentication/)).
 
