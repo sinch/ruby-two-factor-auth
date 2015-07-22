@@ -1,5 +1,5 @@
 #Web Two Factor Auth (Rails + Devise + Sinch)
-This tutorial builds on [Part 1](https://www.sinch.com/tutorials/two-factor-authentication-rails/) of my two factor authentication series. Please make sure you have completed part 1, as that takes care of setup and some of the database.
+This tutorial builds on [Part 1](https://www.sinch.com/tutorials/ruby-on-rails-authentication/) of my two factor authentication series. Please make sure you have completed part 1, as that takes care of setup and some of the database.
 
 When users sign up for your app, they will be prompted to enter their phone number. Every time they sign in after that, a one time password (otp) will be texted to their phone. They will type that otc into the website as a second step to the login process.
 
