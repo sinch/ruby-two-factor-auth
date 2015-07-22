@@ -1,6 +1,6 @@
 #Number Verification And Two Factor Authentication in an Android App - Part 2
 
-In this part of the tutorial, you will build the Android client app that uses the verification API you built in [part 1](https://www.sinch.com/tutorials/two-factor-authentication-rails/).
+In this part of the tutorial, you will build the Android client app that uses the verification API you built in [part 1](https://www.sinch.com/tutorials/ruby-on-rails-authentication/).
 
 Your finished app will look like so
 
