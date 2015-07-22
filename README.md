@@ -105,7 +105,7 @@ In Postman, generate a code:
 ![postman generate](images/postman_generate.png)
 
 See the code arrive in an SMS:
-![sms code](images/sms_code.jpg)
+![ruby on rails sms authentication code](images/sms_code.jpg)
 
 And then verify the code:
 ![postman verify](images/postman_verify.png)
