@@ -1,12 +1,12 @@
-#Number Verification And Two Factor Authentication in an Android App - Part 2
+#Number Verification and Two-Factor Authentication in an Android App - Part 2
 
-In this part of the tutorial, you will build the Android client app that uses the verification API you built in [part 1](https://www.sinch.com/tutorials/ruby-on-rails-authentication/).
+In this part of the tutorial, you will build an Android client app that uses the verification API you built in [part 1](https://www.sinch.com/tutorials/ruby-on-rails-authentication/).
 
-Your finished app will look like so
+Your finished app will look like this:
 
 ![app screen](images/app-screen.png)
 
-Start by creating a new project in Android Studio. I'll call the  first activity **GetCodeActivity**. In this activity, the user will input their phone number, then you will make a request to your-website.com/generate (from part 1 of this tutorial) to generate a one time code. 
+Start by creating a new project in Android Studio. I'll call the first activity **GetCodeActivity**. In this activity, the user will input his or her phone number and then you will make a request to your-website.com/generate (from part 1 of this tutorial) to generate a one-time code. 
 
 Start by adding permission to use the internet:
 
@@ -69,7 +69,7 @@ When the button is clicked, get the phone number that was typed in and use a bac
         }
     }
 
-You'll notice the in `onPostExecute`, you start the next activity. Go ahead on create that activity, **VerifyCodeActivity**. Once the user receives the text message with the one time code, they will enter the code here. The view is very similar to **GetCodeActivity**:
+You'll notice in `onPostExecute`, you start the next activity. Go ahead on create that activity, **VerifyCodeActivity**. Once the user receives the text message with the one-time code, her or she will enter the code here. The view is very similar to **GetCodeActivity**:
 
     <EditText
         android:layout_width="match_parent"
@@ -129,6 +129,6 @@ public void verifyCodeButtonClick(View v) {
     }
 ```    
 
-You're all ready to test your app! Try verifying a correct code, and then pressing the "Verify code" button a second time - you'll notice that the code doesn't work anymore. Since it's a one time use code, it's only valid to be used once.
+You're ready to test your app! Verify a correct code and then press the "Verify code" button a second time; you'll notice that the code doesn't work anymore since it's a one-time use code.
 
-Next up - [web based two factor authentication](https://www.sinch.com/tutorials/ruby-two-factor-auth-part-3/) using Rails, Devise, and Sinch.
+Next up is part 3 of this tutorial, [web-based two-factor authentication](https://www.sinch.com/tutorials/ruby-two-factor-auth-part-3/) using Rails, Devise, and Sinch.
