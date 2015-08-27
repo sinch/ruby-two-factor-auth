@@ -1,11 +1,12 @@
-#Web Two Factor Auth (Rails + Devise + Sinch)
-This tutorial builds on [Part 1](https://www.sinch.com/tutorials/ruby-on-rails-authentication/) of my two factor authentication series. Please make sure you have completed part 1, as that takes care of setup and some of the database.
+#Web Two-Factor Authentication Using Rails, Devise, and Sinch - Part 3
 
-When users sign up for your app, they will be prompted to enter their phone number. Every time they sign in after that, a one time password (otp) will be texted to their phone. They will type that otc into the website as a second step to the login process.
+This tutorial builds on [part 1](https://www.sinch.com/tutorials/ruby-on-rails-authentication/) of my two-factor authentication series. Please make sure you have completed part 1, as that takes care of setup and some of the database.
+
+When users sign up for your app, they will be prompted to enter their phone number. Every time they sign in after that, a one-time password (OTP) will be texted to their phone. They will type that OTP into the website as a second step of the login process.
 
 ![app flow](images/web-app.png)
 
-##Create Welcome Controller
+##Create a welcome controller
 I set up a simple welcome controller to redirect to when the user is logged in. 
 
 1. Create **app/controllers/welcome_controller.rb**, add working skeleton         
@@ -23,9 +24,9 @@ I set up a simple welcome controller to redirect to when the user is logged in.
     
 Now, when users try to access your root domain, they will have to login.
 
-##Set up Devise Gem
+##Set up Devise gem
 
-I chose to use the gem [devise](https://github.com/plataformatec/devise) to handle user authentication. After setting up the basic login with devise, we'll customize it to require two factor authentication. 
+I chose to use the gem [Devise](https://github.com/plataformatec/devise) to handle user authentication. After setting up the basic login with Devise, we'll customize it to require two-factor authentication. 
 
 1. Add `gem 'devise'` to your gemfile
 2. Run `$ bundle install`
@@ -33,12 +34,12 @@ I chose to use the gem [devise](https://github.com/plataformatec/devise) to hand
 4. Run `$ rails generate devise User`
 5. Run `$ rake db:migrate`
 
-##Add Phone Number Field to User Sign Up
+##Add phone number field to user signup
 
 First, add a phone number column to your users table:
 
 1. Run `$ rails g migration AddPhoneNumberToUsers`
-2. Edit migration file to look like so:  
+2. Edit migration file to look like this:  
    
         class AddPhoneNumberToUsers < ActiveRecord::Migration
           def change
@@ -48,7 +49,7 @@ First, add a phone number column to your users table:
         
 3. Run `$ rake db:migrate`
 
-Now, create a custom registration controller to require phone number when signing up. Create the file **app/controllers/registrations_controller.rb**, have it inherit from the devise registrations controller and modify the devise method sign_up_params.
+Now, create a custom registration controller to require a phone number when signing up. Create the file **app/controllers/registrations_controller.rb**, have it inherit from the Devise registrations controller, and modify the Devise method sign_up_params.
 
     class RegistrationsController < Devise::RegistrationsController
       private
@@ -59,7 +60,7 @@ Now, create a custom registration controller to require phone number when signin
 
 Then, in your routes file, change `devise_for :users` to `devise_for :users, :controllers => { registrations: 'registrations' }`. 
 
-Lastly, add a phone number field to the signup view. To override the default devise view, create **app/views/regsitrations/new.html.erb**. Here is an example of how your view will look you take the default devise signup view and just add a phone number field at the top.
+Lastly, add a phone number field to the signup view. To override the default Devise view, create **app/views/regsitrations/new.html.erb**. Here is an example of how your view will look when you take the default Devise signup view and just add a phone number field at the top.
 
     <h2>Sign up</h2>
 
@@ -96,13 +97,13 @@ Lastly, add a phone number field to the signup view. To override the default dev
     
     <%= render "devise/shared/links" %>
 
-##Set up two_factor_authentication Gem
+##Set up two_factor_authentication gem
 
 1. Add `gem 'two_factor_authentication'` to your gemfile
 2. Run `$ bundle install`
 3. Run `$ bundle exec rails g two_factor_authentication user`
 4. Run `$ bundle exec rake db:migrate`
-5. Add `has_one_time_password` to the user model. Your user model should look like so:    
+5. Add `has_one_time_password` to the user model. Your user model should look like this:    
 
 <br>
    
@@ -119,20 +120,18 @@ Lastly, add a phone number field to the signup view. To override the default dev
     
 
 
-##Send SMS Using Sinch
-For this part, we are going to be using [SMS verification](https://www.sinch.com/products/verification/sms-verification/). This is very simple, since you already have the `sinch_sms gem` included in your project. In `send_two_factor_authentication_code`, add the following line with your unique Sinch key and secret.
+##Send SMS using Sinch
+For this part, we are going to be using [SMS verification](https://www.sinch.com/products/verification/sms-verification/). This is very simple since you already have the `sinch_sms gem` included in your project. In `send_two_factor_authentication_code`, add the following line with your unique Sinch key and secret.
 
     SinchSms.send('YOUR_APP_KEY', 'YOUR_APP_SECRET', "Your code is #{otp_code}", phone_number)
     
-Now you're ready to try your two factor authentication system! Spin up a local rails server, navigate to the root url, sign up as a new user, sign out, and try logging back in as that same user.
+Now you're ready to try your two-factor authentication system. Spin up a local Rails server, navigate to the root URL, sign up as a new user, sign out, and try logging back in as that same user.
 
-**Note:** You need to format the phone number according to [E.164](http://en.wikipedia.org/wiki/E.164) standards. For example, US numbers need 1 + 3 digit area code + 7 digit phone number
+**Note:** You need to format the phone number according to [E.164](http://en.wikipedia.org/wiki/E.164) standards. For example, U.S. numbers need 1 + 3 digit area code + 7 digit phone number.
 
-##Logging Out
-To keep things simple, I didn't create a logout button. It's very to simple to logout by deleting the session cookie. In Chrome (it's similar in other browsers too) open the developer tools by right-clicking anywhere on the page and choosing 'Inspect Element.' Then, go to the 'Resources' tab and find the token that represents your app. See the screenshot below for a clear explanation of what to delete.
+##Logging out
+To keep things simple, I didn't create a logout button. It's very to simple to logout by deleting the session cookie. In Chrome, open the developer tools by right-clicking anywhere on the page and choosing 'Inspect Element.' (It's similar in other browsers too.) Then, go to the 'Resources' tab and find the token that represents your app. See the screenshot below for a clear explanation of what to delete.
 
 ![](images/logout_delete_token.png)
 
 Once deleted, refresh the page and you will be prompted to sign in.
-
-
