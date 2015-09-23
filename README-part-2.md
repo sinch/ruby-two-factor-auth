@@ -1,3 +1,5 @@
+Writer’s note: *For the latest updates on mobile app security, make sure to check out our [Verification SDK] (https://www.sinch.com/products/verification/sms-verification/).*
+
 #Number Verification and Two-Factor Authentication in an Android App - Part 2
 
 In this part of the tutorial, you will build an Android client app that uses the verification API you built in [part 1](https://www.sinch.com/tutorials/ruby-on-rails-authentication/).

@@ -1,3 +1,6 @@
+Writer’s note: *For the latest updates on mobile app security, make sure to check out our [Verification SDK] (https://www.sinch.com/products/verification/sms-verification/).*
+
+
 #Web Two-Factor Authentication Using Rails, Devise, and Sinch - Part 3
 
 This tutorial builds on [part 1](https://www.sinch.com/tutorials/ruby-on-rails-authentication/) of my two-factor authentication series. Please make sure you have completed part 1, as that takes care of setup and some of the database.

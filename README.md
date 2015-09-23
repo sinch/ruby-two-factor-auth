@@ -1,3 +1,6 @@
+Writer’s note: *For the latest updates on mobile app security, make sure to check out our [Verification SDK] (https://www.sinch.com/products/verification/sms-verification/).*
+
+
 #Ruby on Rails Two-Factor Authentication for User Phone Numbers - Part 1
 
 More and more websites and apps rely on knowing your phone number and, in many cases, using that number for two-factor authentication (2FA). (More info about [2FA here](https://www.sinch.com/opinion/what-is-two-factor-authentication/)).
