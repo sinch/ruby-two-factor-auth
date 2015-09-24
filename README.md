@@ -1,4 +1,4 @@
-Writer’s note: *For the latest updates on mobile app security, make sure to check out our [Verification SDK] (https://www.sinch.com/products/verification/sms-verification/).*
+**Update:** To verify numbers even easier, check out our [Verification SDK] (https://www.sinch.com/products/verification/sms-verification/)
 
 
 #Ruby on Rails Two-Factor Authentication for User Phone Numbers - Part 1
