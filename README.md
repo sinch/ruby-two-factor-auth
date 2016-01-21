@@ -13,7 +13,7 @@ The full sample code can be downloaded [here](https://github.com/sinch/ruby-two-
 
 ##Prerequisites 
 1. Good understanding of Ruby on Rails and REST APIs
-2. A [Sinch account](http://sinch.com/signup)
+2. A [Sinch account](https://sinch.com/signup)
 
 ##Create a project
 
